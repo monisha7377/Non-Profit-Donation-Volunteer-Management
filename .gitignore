@@ -1,0 +1,9 @@
+# Salesforce DX project temporary files
+.sfdx/
+.sf/
+
+# LWC local development files
+.lwc/
+
+# Visual Studio Code specific files
+.vscode/

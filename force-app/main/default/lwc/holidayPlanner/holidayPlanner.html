@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Event Planning Helper" icon-name="utility:event">
+        <div class="slds-p-around_medium">
+            <!-- THE FIX: The button label is now accurate. -->
+            <lightning-button
+                label="Show This Year's US Public Holidays"
+                onclick={handleFetchHolidays}
+                variant="brand">
+            </lightning-button>
+
+            <template lwc:if={holidays}>
+                <div class="slds-m-top_medium">
+                    <!-- THE FIX: The title now uses the correct variable for the year. -->
+                    <p class="slds-text-heading_small">Public Holidays for {displayYear}:</p>
+                    <ul class="slds-list_dotted">
+                        <template for:each={holidays} for:item="holiday">
+                            <li key={holiday.holidayDate}>{holiday.holidayDate}: {holiday.localName}</li>
+                        </template>
+                    </ul>
+                </div>
+            </template>
+
+            <template lwc:if={error}>
+                <p class="slds-text-color_error slds-m-top_medium">{error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
